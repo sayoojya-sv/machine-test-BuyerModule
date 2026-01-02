@@ -33,6 +33,9 @@ public class BuyerLoginPage {
 	public void loginPass(String pass) {
 		WebElement passw=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@placeholder='Email address']")));
 		passw.sendKeys(pass);
+		
+		WebElement signIn=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit']")));
+		signIn.click();
 	}
 
 }
