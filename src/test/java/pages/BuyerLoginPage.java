@@ -1,0 +1,38 @@
+package pages;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class BuyerLoginPage {
+	
+	WebDriver driver;
+	WebDriverWait wait;
+	
+	public BuyerLoginPage(WebDriver driver) {
+		this.driver=driver;
+		wait = new WebDriverWait(driver,Duration.ofSeconds(20));
+	}
+	
+	//to click login
+	public void loginClk() {
+		WebElement log_clk=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[text()='Sign In']")));
+		log_clk.click();
+	}
+	
+	//to send credentials
+	public void loginEmail(String e_mail) {
+		WebElement emaiL=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@placeholder='Email address']")));
+		emaiL.sendKeys(e_mail);
+	}
+	
+	public void loginPass(String pass) {
+		WebElement passw=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@placeholder='Email address']")));
+		passw.sendKeys(pass);
+	}
+
+}
